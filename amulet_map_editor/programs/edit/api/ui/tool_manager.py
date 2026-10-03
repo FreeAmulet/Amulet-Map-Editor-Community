@@ -55,6 +55,10 @@ class ToolManagerSizer(wx.BoxSizer, EditCanvasContainer):
     def tools(self):
         return self._tools.copy()
 
+    @property
+    def active_tool(self) -> Optional[BaseToolUIType]:
+        return self._active_tool
+
     def bind_events(self):
         if self._active_tool is not None:
             self._active_tool.bind_events()

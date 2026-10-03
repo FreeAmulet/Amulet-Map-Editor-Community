@@ -675,8 +675,12 @@ class PasteTool(wx.BoxSizer, DefaultBaseToolUI):
                 lang.get("program_3d_edit.paste_tool.zero_scale_message")
             )
 
+    def confirm_paste(self):
+        if self._is_enabled:
+            self.canvas.run_operation(self._paste_operation)
+
     def _paste_confirm(self, evt):
-        self.canvas.run_operation(self._paste_operation)
+        self.confirm_paste()
 
     def _on_draw(self, evt):
         self.canvas.renderer.start_draw()

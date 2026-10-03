@@ -229,7 +229,7 @@ class RenderSelection(TriMesh, OpenGLResourcePackManagerStatic):
         self.transformation_matrix = displacement_matrix(*self.min - self.min % 16)
 
         self.change_verts()
-        self._volume = numpy.product(self.max - self.min)
+        self._volume = numpy.prod(self.max - self.min)
         self._needs_rebuild = False
 
     def draw(

@@ -354,7 +354,11 @@ class EditCanvas(BaseEditCanvas):
         )
 
     def paste_from_cache(self):
-        if structure_cache:
+        active_tool = self._tool_sizer.active_tool
+
+        if active_tool is not None and active_tool.name == "Paste":
+            active_tool.confirm_paste()
+        elif structure_cache:
             self.paste(*structure_cache.get_structure())
         else:
             wx.MessageBox("A structure needs to be copied before one can be pasted.")

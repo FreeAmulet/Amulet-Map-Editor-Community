@@ -345,7 +345,7 @@ cdef VertArrayContainerTuple* create_lod0_sub_chunk(
 cdef tuple _create_lod0_chunk(
     BlockModelManager block_model_manager,
     list blocks,
-    long[:] chunk_offset
+    long long[:] chunk_offset
 ):
     cdef int i, j
     cdef long sub_chunk_y
